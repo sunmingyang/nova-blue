@@ -15,9 +15,11 @@ class ThemeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Nova::serving(function (ServingNova $event) {
+        if(config('nova.theme') === 'blue'){
+            Nova::serving(function (ServingNova $event) {
             Nova::style('blue', __DIR__.'/../resources/css/theme.css');
         });
+        }
     }
 
     /**
